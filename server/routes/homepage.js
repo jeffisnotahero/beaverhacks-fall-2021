@@ -2,11 +2,11 @@
 
 import express from 'express';
 
-import { getHomepage, createMemo } from '../controllers/homepage.js'
+import { getMemo, createMemo } from '../controllers/homepage.js'
 
 const router = express.Router();
 
-router.get('/', getHomepage)
+router.get('/', getMemo)
 router.post('/', createMemo)
 
 export default router;

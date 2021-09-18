@@ -4,7 +4,7 @@
 import PostMemo from '../models/postMemo.js'
 
 // Homepage
-export const getHomepage = async (req, res) => {
+export const getMemo = async (req, res) => {
 
     // Get memo data
     try{

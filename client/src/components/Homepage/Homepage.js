@@ -4,10 +4,15 @@ import { Grid, Button } from '@material-ui/core'
 import Form from '../Form/Form';
 import NearestCityData from '../NearestCityData/NearestCityData'
 
+import { getMemos } from '../../actions/memos';
+import { useDispatch } from 'react-redux';
+
+
 // NEED TO BE REMOVED BEFORE PUSHING
-const API_KEY = "API KEY HERE"
+const API_KEY = "YOUR_API_KEY"
 
 const Homepage = () => {
+    const dispatch = useDispatch();
 
     // Nearest city data
     const [nearestCityData, setNearestCityData] = useState([]);
@@ -22,9 +27,10 @@ const Homepage = () => {
     }
 
     useEffect(() => {
-        fetchNearestCityDataData()
+        dispatch(getMemos());
+        fetchNearestCityDataData();
 
-    }, []);
+    }, [dispatch]);
 
     // TEST
     const handleOnClick = () => {

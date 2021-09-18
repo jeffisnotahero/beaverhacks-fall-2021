@@ -13,3 +13,15 @@ export const createMemo = (memo) => async (dispatch) => {
         
     }
 }
+
+export const getMemos = () => async (dispatch) => {
+    try {
+        // Fetch data from api request
+        const { data } = await api.getMemos();
+        dispatch({ type: 'GET_ALL', payload: data});
+
+    } catch (error) {
+        console.log(error.message);
+        
+    }
+}
