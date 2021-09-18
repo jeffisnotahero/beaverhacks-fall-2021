@@ -12,13 +12,13 @@ import homepageRoutes from './routes/homepage.js';
 const app = express();
 dotenv.config();
 
-// Express middleware to connect routes to application
-app.use('/', homepageRoutes);
-
 // To enable sending request
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+// Express middleware to connect routes to application
+app.use('/', homepageRoutes);
 
 // Mongo Database setup with enviroment variable
 // https://www.mongodb.com/cloud/atlas
