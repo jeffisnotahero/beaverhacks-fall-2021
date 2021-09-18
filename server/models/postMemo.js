@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 const memoSchema = mongoose.Schema({
+    city: String,
+    state: String,
+    aqi: Number,
+    humidity: Number,
+    temperature: Number,
     title : String,
     message: String,
     createdAt:{

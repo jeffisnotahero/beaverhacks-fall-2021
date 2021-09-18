@@ -1,7 +1,7 @@
 // Index.js, to connect all our React application to index.html
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useDispatch } from 'react-redux';
+
 
 // Provider, to allow to use the React 'state' anywhere, no need to pass state between Parent or Child component
 import { Provider } from 'react-redux';

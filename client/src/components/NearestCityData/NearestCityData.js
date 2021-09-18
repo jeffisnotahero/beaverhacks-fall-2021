@@ -43,6 +43,9 @@ const NearestCityData = (passNearestCityData) => {
             <div>
                 <Grid align="center">
                     <div>
+                        Nearest City Data
+                    </div>
+                    <div>
                         City: {nearestCityData.passNearestCityData.city}
                     </div>
                     <div>
@@ -55,7 +58,7 @@ const NearestCityData = (passNearestCityData) => {
                         As of: {nearestCityData.passNearestCityData.current.pollution.ts}
                     </div>
                     <div>
-                        Humidity: {nearestCityData.passNearestCityData.current.pollution.hu}
+                        Humidity: {nearestCityData.passNearestCityData.current.weather.hu}
                     </div>
                     <div>
                         Atmospheric pressure in hPa: {nearestCityData.passNearestCityData.current.weather.pr}

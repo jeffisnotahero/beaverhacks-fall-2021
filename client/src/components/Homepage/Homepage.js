@@ -5,7 +5,7 @@ import Form from '../Form/Form';
 import NearestCityData from '../NearestCityData/NearestCityData'
 
 // NEED TO BE REMOVED BEFORE PUSHING
-const API_KEY = "YOUR_API_KEY"
+const API_KEY = "API KEY HERE"
 
 const Homepage = () => {
 
@@ -42,15 +42,15 @@ const Homepage = () => {
             <div>
                 <Grid container spacing={1}>
                     <Grid item xs={12} align="center">    
-                        {nearestCityDataLoading ? <div>Loading</div> : <NearestCityData passNearestCityData={nearestCityData}/>}
+                        {nearestCityDataLoading ? <div>Loading...</div> : <NearestCityData passNearestCityData={nearestCityData}/>}
                     </Grid>
                 </Grid>
             </div>
 
             <div>
                 <Grid container spacing={1}>
-                    <Grid item xs={12} align="center">    
-                        <Form />
+                    <Grid item xs={12} align="center"> 
+                        {nearestCityDataLoading ? <div>Loading...</div> : <Form passNearestCityData={nearestCityData}/>}   
                     </Grid>
                 </Grid>
             </div>
