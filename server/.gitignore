@@ -1,0 +1,3 @@
+# Files or folders that would be automatically ignored when git pushing the server file
+node_modules
+.env
