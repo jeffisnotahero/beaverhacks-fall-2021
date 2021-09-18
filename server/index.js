@@ -13,7 +13,7 @@ const app = express();
 dotenv.config();
 
 // Express middleware to connect routes to application
-app.use('/homepage', homepageRoutes);
+app.use('/', homepageRoutes);
 
 // To enable sending request
 app.use(express.json({ limit: "30mb", extended: true }));

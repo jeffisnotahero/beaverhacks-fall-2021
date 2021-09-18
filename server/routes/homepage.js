@@ -8,6 +8,6 @@ const router = express.Router();
 
 //  Hompage route, http://localhost:5000/homepage
 router.get('/', getHomepage)
-router.get('/', createMemo)
+router.post('/create-memo', createMemo)
 
 export default router;
