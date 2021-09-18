@@ -7,7 +7,6 @@ const memoSchema = mongoose.Schema({
         type: Date,
         default: new Date()
     }
-
 });
 
 // Create model

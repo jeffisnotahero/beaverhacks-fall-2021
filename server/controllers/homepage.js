@@ -27,15 +27,15 @@ export const createMemo = async (req, res) => {
     const memo = req.body;
 
     // Create new memo
-    const newMemo = new PostMemo(memo)
+    const newMemo = new PostMemo(memo);
 
     try{
         // Save memo to database
         await newMemo.save();
-        res.status(201).json(newMemo);
+        res.status(201).json("Success");
 
     } catch (error) {
-        res.status(409).json({ message : error });
+        res.status(409).json({ message : error.messsage });
 
     }
 }
