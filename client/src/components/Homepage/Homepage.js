@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Form from '../Form/Form';
 
 // NEED TO BE REMOVED BEFORE PUSHING
-const API_KEY = "311ca0a9-696c-4998-8c10-f37b64302af3"
+const API_KEY = "PUT API KEY HERE"
 
 const Homepage = () => {
 
