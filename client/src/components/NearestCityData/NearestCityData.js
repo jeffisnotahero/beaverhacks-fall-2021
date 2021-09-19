@@ -1,18 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import { Grid, Typography } from '@material-ui/core'
+import React, { useState } from 'react';
+
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
+//  Table style
+const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
+const useStyles = makeStyles({
+    table: {
+      minWidth: 700,
+    },
+  });
 
 const NearestCityData = (passNearestCityData) => {
+    const classes = useStyles();
 
-    const [nearestCityData, setNearestCityData] = useState([]);
-    const [nearestCityDataLoading, setNearestCityDataLoading] = useState(true)
-
-    useEffect( async () => { 
-        await setNearestCityData(passNearestCityData)
-        setNearestCityDataLoading(false)
-
-    }, [])
-
-    console.log("nearestCityData1", nearestCityData)
+    // Table data
+    function createData(name, value) {
+        return { name, value };
+    }
 
     // Check AQI status
     const checkAqiStatus = (index) => {
@@ -33,54 +62,46 @@ const NearestCityData = (passNearestCityData) => {
         }
         else if (index >= 301 && index <= 500){
             return "Hazardous"
-        }
-        
+        } 
     }
+
+    const [rowData, setRowData] = useState([
+        createData('City', passNearestCityData.passNearestCityData.city),
+        createData('State', passNearestCityData.passNearestCityData.state),
+        createData('AQI', passNearestCityData.passNearestCityData.current.pollution.aqius),
+        createData('Humidity', passNearestCityData.passNearestCityData.current.weather.hu),
+        createData('Atmospheric pressure in hPa', passNearestCityData.passNearestCityData.current.weather.pr),
+        createData('Temperature', passNearestCityData.passNearestCityData.current.weather.tp),
+        createData('Windspeed', passNearestCityData.passNearestCityData.current.weather.ws),
+        createData('Air quality index, Level of health concern', checkAqiStatus(passNearestCityData.passNearestCityData.current.pollution.aqius)),
+    ]);
 
     return(
         <div>
-        {nearestCityDataLoading ? <div>loading</div> : 
-            <div>
-                <Grid align="center">
-                    <Typography component="h4" variant="h4">
-                        Nearest City Climate Data
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        City: {nearestCityData.passNearestCityData.city}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        State: {nearestCityData.passNearestCityData.state}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        AQI: {nearestCityData.passNearestCityData.current.pollution.aqius}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        As of: {nearestCityData.passNearestCityData.current.pollution.ts}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        Humidity: {nearestCityData.passNearestCityData.current.weather.hu}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        Atmospheric pressure in hPa: {nearestCityData.passNearestCityData.current.weather.pr}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        Temperature: {nearestCityData.passNearestCityData.current.weather.tp}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        As of: {nearestCityData.passNearestCityData.current.weather.ts}
-                    </Typography>
-                    <Typography component="h6" variant="h6">
-                        Windspeed: {nearestCityData.passNearestCityData.current.weather.ws}
-                    </Typography>
-                </Grid>
-
-                <Typography component="h6" variant="h6">
-                    Air quality index, Level of health concern: {checkAqiStatus(nearestCityData.passNearestCityData.current.pollution.aqius)}
-                </Typography>
-            </div>
-        }
+            <Typography component="h4" variant="h4">Current location climate data</Typography>
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="customized table">
+                    <TableHead>
+                        <TableRow>
+                            <StyledTableCell>Data</StyledTableCell>
+                            <StyledTableCell align="right"></StyledTableCell>
+                            <StyledTableCell align="right">Value</StyledTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rowData.map((row) => (
+                        <StyledTableRow key={row.name}>
+                            <StyledTableCell component="th" scope="row">
+                            {row.name}
+                            </StyledTableCell>
+                            <StyledTableCell align="right">{row.data}</StyledTableCell>
+                            <StyledTableCell align="right">{row.value}</StyledTableCell>
+                        </StyledTableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
 }
-
 export default NearestCityData;

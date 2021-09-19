@@ -1,21 +1,52 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
+
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 const Memos = () => {
     const memos = useSelector((state) => state.memos)
     console.log("hello",memos)
+
+    const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+        },
+    }));
+    const classes = useStyles();
     
     return (
-        <>
-            <h1>Memos</h1>
+        <div>
+             <Grid container spacing={1}>
+                <Grid item xs={12} align="center">
+                    <Grid item xs={12} align="center">
+                        <Typography component="h2" variant="h2">Memo</Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            
+            <Grid item xs={12} align="center">
+                <List component="nav" className={classes.root}  aria-label="mailbox folders">
             {memos.map(function(data, index){
                 return(
-                    <Typography component="h6" variant="h6" key={index}>{index + 1}: City: {data.city} State: {data.state} AQI: {data.aqi} Title: {data.title} Message: {data.message}</Typography>
+                    <Grid item xs={12}  align="center" key={index}>
+                        <ListItem>
+                        <ListItemText primary={data.city} secondary={'State: ' + data.state + " " + 'AQI: ' + data.aqi + " " + 'Title: '+ data.title + " " + 'Message:'  + data.message }/>
+                        </ListItem>
+                        <Divider />
+                    </Grid>
                 )
             })}
+                </List>
+            </Grid>
             
-        </>
+        </div>
 
     );
 }

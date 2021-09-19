@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { createMemo } from '../../actions/memos'
+
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import useStyles from './styles';
 
-import { useDispatch } from 'react-redux'
-import { createMemo } from '../../actions/memos'
+
 
 const Form = (nearestCityData) => {
     const classes = useStyles();

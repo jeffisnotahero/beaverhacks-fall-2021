@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
-
-import { Grid, Button, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { getMemos } from '../../actions/memos';
+import { useDispatch } from 'react-redux';
 
 import Form from '../Form/Form';
 import NearestCityData from '../NearestCityData/NearestCityData'
 import Memos from '../Memos/Memos';
 
-import { getMemos } from '../../actions/memos';
-import { useDispatch } from 'react-redux';
 
-// NEED TO BE REMOVED BEFORE PUSHING
-const API_KEY = "API_KEY_HERE"
+
+import { Grid, Button, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+
+
+// API
+const API_KEY = ""
 
 // Style
 const useStyles = makeStyles((theme) => ({
