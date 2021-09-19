@@ -9,17 +9,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 const Memos = () => {
-    const memos = useSelector((state) => state.memos)
-    console.log("hello",memos)
 
     const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-        },
-    }));
-    const classes = useStyles();
+        root: {
+            width: '100%',
+            maxWidth: 360,
+            backgroundColor: theme.palette.background.paper,
+            },
+        }));
+        const classes = useStyles();
+        
+    const memos = useSelector((state) => state.memos)
+    console.log("hello", memos)
     
     return (
         <div>

@@ -5,8 +5,6 @@ import { createMemo } from '../../actions/memos'
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import useStyles from './styles';
 
-
-
 const Form = (nearestCityData) => {
     const classes = useStyles();
     
@@ -25,14 +23,12 @@ const Form = (nearestCityData) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(memoData)
-
         dispatch(createMemo(memoData));
-
+        window.location.replace('http://localhost:3000/')
     }
 
     const clear = () => {
         setMemoData({...memoData, title: "", message: ""})
-    
     }
 
     return (
