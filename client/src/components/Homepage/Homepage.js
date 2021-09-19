@@ -6,12 +6,9 @@ import Form from '../Form/Form';
 import NearestCityData from '../NearestCityData/NearestCityData'
 import Memos from '../Memos/Memos';
 
-
-
 import { Grid, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-
 
 // API
 const API_KEY = ""
@@ -54,7 +51,7 @@ const Homepage = () => {
         fetchNearestCityData();
     }, [dispatch]);
 
-    // Show / Hide CreateMemoView
+    // Show or Hide CreateMemoView
     const renderCreateMemoView = () => {
         setRenderCreateMemo(true)
     }
@@ -63,38 +60,80 @@ const Homepage = () => {
         setRenderCreateMemo(false)
     }
 
+    // Show or Hide current location climate data
+    const[currentClimateDataView, setRenderCurrentClimateData] = useState(true)
+
+    const renderCurrentClimateData = () => {
+        setRenderCurrentClimateData(true)
+    }
+
+    const unrenderCurrentClimateData = () => {
+        setRenderCurrentClimateData(false)
+    }
+
     // Render
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                    <Typography component="h2" variant="h2" className={classes.paper}>Climate</Typography>
+                    <Typography component="h1" variant="h1" className={classes.paper}>Local weather</Typography>
                 </Grid>
 
-                <Grid item xs={12}>
-                    {!renderCreateMemo ? 
-                        <Paper className={classes.paper}>{nearestCityDataLoading ? <div>Loading...</ div> : <NearestCityData passNearestCityData={nearestCityData}/>}</Paper>
-                        : <div></div> }
-                </Grid>
+                {currentClimateDataView ? 
+                    <Grid item xs={12}>
+                        {!renderCreateMemo ? 
+                            <Paper className={classes.paper}>{nearestCityDataLoading ? <div>Loading...</ div> : <NearestCityData passNearestCityData={nearestCityData}/>}</Paper>
+                            : <div></div> }
+                    </Grid>
+                : <div></div>}
 
-                <Grid item xs={12}>
-                    {!renderCreateMemo ? 
-                        <Paper className={classes.paper}><Memos /></Paper>
-                        : <div></div> }
-                </Grid>
+                {!currentClimateDataView ? 
+                    <Grid item xs={12}>
+                        {!renderCreateMemo ? 
+                            <Paper className={classes.paper}><Memos /></Paper>
+                            : <div></div> }
+                    </Grid>
+                    :<div></div>}
+
             </Grid>
+
+            {currentClimateDataView && !renderCreateMemo ? 
+            <Grid align="center">
+                <Button 
+                    onClick={unrenderCurrentClimateData}
+                    color="primary" 
+                    variant="contained" 
+                    >
+                    Show Memo
+                </Button>
+            </Grid>      
+            :
+            <div></div>}
+
+            {!currentClimateDataView ? 
+            <Grid align="center">
+                <Button 
+                    onClick={renderCurrentClimateData}
+                    color="primary" 
+                    variant="contained" 
+                    >
+                    Back
+                </Button>
+            </Grid>
+            :
+            <div></div>}
 
             <Grid align="center">
                 {!renderCreateMemo ?
-                        <Button 
-                            onClick={renderCreateMemoView}
-                            color="primary" 
-                            variant="contained" 
-                            >
-                            Create Memo
-                        </Button>
+                    <Button 
+                        onClick={renderCreateMemoView}
+                        color="primary" 
+                        variant="contained" 
+                        >
+                        Create Memo
+                    </Button>
 
-                        :<div></div>}
+                :<div></div>}
             </Grid>
 
              <Grid align="center">

@@ -26,13 +26,13 @@ const Memos = () => {
              <Grid container spacing={1}>
                 <Grid item xs={12} align="center">
                     <Grid item xs={12} align="center">
-                        <Typography component="h2" variant="h2">Memo</Typography>
+                    <Typography component="h4" variant="h4">Memo</Typography>
                     </Grid>
                 </Grid>
             </Grid>
             
             <Grid item xs={12} align="center">
-                <List component="nav" className={classes.root}  aria-label="mailbox folders">
+                <List component="nav" fullwidth="true" className={classes.root}  aria-label="mailbox folders">
             {memos.map(function(data, index){
                 return(
                     <Grid item xs={12}  align="center" key={index}>

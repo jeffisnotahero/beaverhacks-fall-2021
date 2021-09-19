@@ -78,7 +78,7 @@ const NearestCityData = (passNearestCityData) => {
 
     return(
         <div>
-            <Typography component="h4" variant="h4">Current location climate data</Typography>
+            <Typography component="h4" variant="h4">Current location data</Typography>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
