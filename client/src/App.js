@@ -1,19 +1,7 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
 import Homepage from './components/Homepage/Homepage';
 
-// import { useDispatch } from 'react-redux';
-// import { getMemos } from './actions/memos';
-
-
 const App = () => {
-
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(getMemos());
-
-    // }, [dispatch]);
 
     return (
 

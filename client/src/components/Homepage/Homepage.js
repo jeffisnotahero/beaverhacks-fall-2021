@@ -42,7 +42,6 @@ const Homepage = () => {
         const item = data.data;
         setNearestCityData(item);
         setNearestCityDataLoading(false);
-        console.log('nearest', item);
     }
 
     // useEffect

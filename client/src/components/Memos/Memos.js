@@ -18,9 +18,8 @@ const Memos = () => {
             },
         }));
         const classes = useStyles();
-        
+
     const memos = useSelector((state) => state.memos)
-    console.log("hello", memos)
     
     return (
         <div>

@@ -1,6 +1,3 @@
-// index.js, starting point of our server application
-
-// Dependencies
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -21,7 +18,6 @@ app.use(cors());
 app.use('/', homepageRoutes);
 
 // Mongo Database setup with enviroment variable
-// https://www.mongodb.com/cloud/atlas
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -22,7 +22,6 @@ const Form = (nearestCityData) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(memoData)
         dispatch(createMemo(memoData));
         window.location.replace('http://localhost:3000/')
     }

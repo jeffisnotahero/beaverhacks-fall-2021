@@ -2,7 +2,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
 // Provider, to allow to use the React 'state' anywhere, no need to pass state between Parent or Child component
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
