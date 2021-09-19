@@ -11,10 +11,8 @@ import Memos from '../Memos/Memos';
 import { getMemos } from '../../actions/memos';
 import { useDispatch } from 'react-redux';
 
-import Box from '@material-ui/core/Box';
-
 // NEED TO BE REMOVED BEFORE PUSHING
-const API_KEY = "YOUR_API_KEY"
+const API_KEY = "API_KEY_HERE"
 
 // Style
 const useStyles = makeStyles((theme) => ({
@@ -45,13 +43,13 @@ const Homepage = () => {
         const item = data.data;
         setNearestCityData(item);
         setNearestCityDataLoading(false);
+        console.log('nearest', item);
     }
 
     // useEffect
     useEffect(() => {
         dispatch(getMemos());
         fetchNearestCityData();
-
     }, [dispatch]);
 
     // Show / Hide CreateMemoView
@@ -68,15 +66,19 @@ const Homepage = () => {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                    <Typography component="h2" variant="h2" className={classes.paper}>Homepage</Typography>
+                    <Typography component="h2" variant="h2" className={classes.paper}>Climate</Typography>
                 </Grid>
 
                 <Grid item xs={12}>
-                    {!renderCreateMemo ? <Paper className={classes.paper}>{nearestCityDataLoading ? <div>Loading...</ div> : <NearestCityData passNearestCityData={nearestCityData}/>}</Paper>: <div></div> }
+                    {!renderCreateMemo ? 
+                        <Paper className={classes.paper}>{nearestCityDataLoading ? <div>Loading...</ div> : <NearestCityData passNearestCityData={nearestCityData}/>}</Paper>
+                        : <div></div> }
                 </Grid>
 
                 <Grid item xs={12}>
-                    {!renderCreateMemo ? <Paper className={classes.paper}><Memos /></Paper>: <div></div> }
+                    {!renderCreateMemo ? 
+                        <Paper className={classes.paper}><Memos /></Paper>
+                        : <div></div> }
                 </Grid>
             </Grid>
 
@@ -104,12 +106,13 @@ const Homepage = () => {
                     </Button>
 
                     :<div></div>}
-
             </Grid>
 
-            <Grid spacing={3} justifyContent="center">
+            <Grid container spacing={3} justifyContent="center">
                 <Grid item xs={12}>
-                    {renderCreateMemo ? <Paper className={classes.paper}>{nearestCityDataLoading ? <div>Loading...</div> : <Form passNearestCityData={nearestCityData}/>}</Paper> : <div></div> }
+                    {renderCreateMemo ? 
+                        <Paper className={classes.paper}>{nearestCityDataLoading ? <div>Loading...</div> : <Form passNearestCityData={nearestCityData}/>}</Paper> 
+                        : <div></div> }
                 </Grid>
             </Grid>
       </div>        

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { Grid, Button, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 const Memos = () => {
     const memos = useSelector((state) => state.memos)

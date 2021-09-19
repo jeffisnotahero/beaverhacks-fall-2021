@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import Homepage from './components/Homepage/Homepage';
-import { Container, Typography, Grid} from '@material-ui/core'
 
 // import { useDispatch } from 'react-redux';
 // import { getMemos } from './actions/memos';
