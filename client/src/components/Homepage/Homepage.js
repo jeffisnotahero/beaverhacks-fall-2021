@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 // API
-const API_KEY = ""
+const API_KEY = "YOUR API KEY HERE"
 
 // Style
 const useStyles = makeStyles((theme) => ({

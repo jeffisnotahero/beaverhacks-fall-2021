@@ -26,7 +26,8 @@ const Form = (nearestCityData) => {
         window.location.replace('http://localhost:3000/')
     }
 
-    const clear = () => {
+    const clear = (e) => {
+        e.preventDefault();
         setMemoData({...memoData, title: "", message: ""})
     }
 
