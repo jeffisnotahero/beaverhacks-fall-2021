@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import Homepage from './components/Homepage/Homepage';
-import Memos from './components/Memos/Memos'
 import { Container, Typography, Grid} from '@material-ui/core'
 
 // import { useDispatch } from 'react-redux';
@@ -18,16 +17,12 @@ const App = () => {
     // }, [dispatch]);
 
     return (
-        <Container maxidth="lg">
-            <div>
+
+            <div className="center">
                 <div>
                     <Homepage />
-                </div>
-                <div>
-                    <Memos />
-                </div>    
+                </div> 
             </div>
-        </Container>
     );
 }
 export default App;

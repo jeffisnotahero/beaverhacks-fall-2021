@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux'
-import Memo from './Memo/Memo'
+import { Grid, Button, Typography } from '@material-ui/core'
 
 const Memos = () => {
     const memos = useSelector((state) => state.memos)
@@ -11,10 +11,8 @@ const Memos = () => {
             <h1>Memos</h1>
             {memos.map(function(data, index){
                 return(
-                    <div key={index}>{data.temperature}</div>
+                    <Typography component="h6" variant="h6" key={index}>{index + 1}: City: {data.city} State: {data.state} AQI: {data.aqi} Title: {data.title} Message: {data.message}</Typography>
                 )
-                
-
             })}
             
         </>
