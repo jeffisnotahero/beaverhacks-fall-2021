@@ -10,8 +10,10 @@ import { Grid, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
-// API
+// AirVisual API
+// http://api.airvisual.com/v2/nearest_city?key={{YOUR_API_KEY}}
 const API_KEY = "YOUR API KEY HERE"
+
 
 // Style
 const useStyles = makeStyles((theme) => ({
