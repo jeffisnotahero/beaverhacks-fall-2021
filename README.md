@@ -1,7 +1,7 @@
 # beaverhacks-fall-2021
 Project for [Beaverhacks Fall 2021](https://beaverhacks-fall-2021.devpost.com/)
 
-## Project detail :selfie:
+## Project detail :scroll:
 [DEVPOST](https://devpost.com/software/weather-5wsdyo)
 
 
